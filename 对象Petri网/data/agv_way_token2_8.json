@@ -1,0 +1,108 @@
+{
+  "original_state": {
+    "token1": {
+      "inplace": "p1",
+      "waiting_time": 0,
+      "token_attribute": "agv1"
+    },
+    "token2": {
+      "inplace": "p2",
+      "waiting_time": 0,
+      "token_attribute": "agv2"
+    },
+    "token4": {
+      "inplace": "p6.1",
+      "waiting_time": 0,
+      "token_attribute": "robot1"
+    },
+    "token5": {
+      "inplace": "p27.1",
+      "waiting_time": 0,
+      "token_attribute": "robot2"
+    },
+    "token6": {
+      "inplace": "p4.1",
+      "waiting_time": 0,
+      "token_attribute": "robot3"
+    },
+    "token7": {
+      "inplace": "p25.1",
+      "waiting_time": 0,
+      "token_attribute": "robot4"
+    },
+    "token8": {
+      "inplace": "p6.4",
+      "waiting_time": 0,
+      "token_attribute": "workpiece1"
+    },
+    "token9": {
+      "inplace": "p6.4",
+      "waiting_time": 0,
+      "token_attribute": "workpiece2"
+    },
+    "token12": {
+      "inplace": "p4.4",
+      "waiting_time": 0,
+      "token_attribute": "workpiece5"
+    },
+    "token13": {
+      "inplace": "p4.4",
+      "waiting_time": 0,
+      "token_attribute": "workpiece6"
+    },
+    "token16": {
+      "inplace": "p25.4",
+      "waiting_time": 0,
+      "token_attribute": "workpiece9"
+    },
+    "token17": {
+      "inplace": "p25.4",
+      "waiting_time": 0,
+      "token_attribute": "workpiece10"
+    },
+    "token20": {
+      "inplace": "p27.4",
+      "waiting_time": 0,
+      "token_attribute": "workpiece13"
+    },
+    "token21": {
+      "inplace": "p27.4",
+      "waiting_time": 0,
+      "token_attribute": "workpiece14"
+    }
+  },
+  "target_state": {
+    "token1": {
+      "inplace": "p4.4",
+      "token_attribute": "workpiece1"
+    },
+    "token2": {
+      "inplace": "p4.4",
+      "token_attribute": "workpiece2"
+    },
+    "token5": {
+      "inplace": "p25.4",
+      "token_attribute": "workpiece5"
+    },
+    "token6": {
+      "inplace": "p25.4",
+      "token_attribute": "workpiece6"
+    },
+    "token9": {
+      "inplace": "p27.4",
+      "token_attribute": "workpiece9"
+    },
+    "token10": {
+      "inplace": "p27.4",
+      "token_attribute": "workpiece10"
+    },
+    "token13": {
+      "inplace": "p6.4",
+      "token_attribute": "workpiece13"
+    },
+    "token14": {
+      "inplace": "p6.4",
+      "token_attribute": "workpiece14"
+    }
+  }
+}

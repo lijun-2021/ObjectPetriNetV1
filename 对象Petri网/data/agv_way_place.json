@@ -1,0 +1,668 @@
+{
+  "p6.4": {
+    "delay": 0,
+    "capacity": 12,
+    "pre_arcs": [ "t6.2" ],
+    "post_arcs": [ "t6.3" ]
+  },
+  "p6.3": {
+    "delay": 12,
+    "capacity": 1,
+    "pre_arcs": [ "t6.1" ],
+    "post_arcs": [ "t6.2" ]
+  },
+  "p6.1": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t6.4", "t6.2" ],
+    "post_arcs": [ "t6.3", "t6.1" ]
+  },
+  "p6.2": {
+    "delay": 12,
+    "capacity": 1,
+    "pre_arcs": [ "t6.3" ],
+    "post_arcs": [ "t6.4" ]
+  },
+  "p3": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t6-3.2", "t2-3.2" ],
+    "post_arcs": [ "t3-2.1" ]
+  },
+  "p3-2": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t3-2.1" ],
+    "post_arcs": [ "t3-2.2" ]
+  },
+  "p2-3": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t2-3.1" ],
+    "post_arcs": [ "t2-3.2" ]
+  },
+  "p2": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t3-2.2", "t5-2.2", "t1-2.2" ],
+    "post_arcs": [ "t2-3.1", "t2-5.1", "t2-1.1" ]
+  },
+  "p1-2": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t1-2.1" ],
+    "post_arcs": [ "t1-2.2" ]
+  },
+  "p2-1": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t2-1.1" ],
+    "post_arcs": [ "t2-1.2" ]
+  },
+  "p1": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t2-1.2" ],
+    "post_arcs": [ "t1-4.1", "t1-2.1" ]
+  },
+  "p6-3": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t6-3.1" ],
+    "post_arcs": [ "t6-3.2" ]
+  },
+  "p5-2": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t5-2.1" ],
+    "post_arcs": [ "t5-2.2" ]
+  },
+  "p2-5": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t2-5.1" ],
+    "post_arcs": [ "t2-5.2" ]
+  },
+  "p1-4": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t1-4.1" ],
+    "post_arcs": [ "t1-4.2" ]
+  },
+  "p6": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t6.4", "t5-6.2", "t9-6.2", "t6.2" ],
+    "post_arcs": [ "t6-3.1", "t6-5.1", "t6.3", "t6.1" ]
+  },
+  "p6-5": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t6-5.1" ],
+    "post_arcs": [ "t6-5.2" ]
+  },
+  "p5-6": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t5-6.1" ],
+    "post_arcs": [ "t5-6.2" ]
+  },
+  "p5": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t2-5.2", "t6-5.2", "t8-5.2", "t4-5.2" ],
+    "post_arcs": [ "t5-6.1", "t5-4.1", "t5-8.1", "t5-2.1" ]
+  },
+  "p4-5": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t4-5.1" ],
+    "post_arcs": [ "t4-5.2" ]
+  },
+  "p5-4": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t5-4.1" ],
+    "post_arcs": [ "t5-4.2" ]
+  },
+  "p4": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t1-4.2", "t5-4.2", "t4.2", "t4.4" ],
+    "post_arcs": [ "t4-7.1", "t4-5.1", "t4.1", "t4.3" ]
+  },
+  "p9-6": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t9-6.1" ],
+    "post_arcs": [ "t9-6.2" ]
+  },
+  "p8-5": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t8-5.1" ],
+    "post_arcs": [ "t8-5.2" ]
+  },
+  "p5-8": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t5-8.1" ],
+    "post_arcs": [ "t5-8.2" ]
+  },
+  "p4-7": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t4-7.1" ],
+    "post_arcs": [ "t4-7.2" ]
+  },
+  "p9": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t8-9.2", "t12-9.2" ],
+    "post_arcs": [ "t9-6.1", "t9-8.1" ]
+  },
+  "p9-8": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t9-8.1" ],
+    "post_arcs": [ "t9-8.2" ]
+  },
+  "p8-9": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t8-9.1" ],
+    "post_arcs": [ "t8-9.2" ]
+  },
+  "p8": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t5-8.2", "t9-8.2", "t11-8.2", "t7-8.2" ],
+    "post_arcs": [ "t8-9.1", "t8-7.1", "t8-11.1", "t8-5.1" ]
+  },
+  "p8-7": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t8-7.1" ],
+    "post_arcs": [ "t8-7.2" ]
+  },
+  "p7-8": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t7-8.1" ],
+    "post_arcs": [ "t7-8.2" ]
+  },
+  "p7": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t4-7.2", "t8-7.2" ],
+    "post_arcs": [ "t7-10.1", "t7-8.1" ]
+  },
+  "p12-9": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t12-9.1" ],
+    "post_arcs": [ "t12-9.2" ]
+  },
+  "p11-8": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t11-8.1" ],
+    "post_arcs": [ "t11-8.2" ]
+  },
+  "p8-11": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t8-11.1" ],
+    "post_arcs": [ "t8-11.2" ]
+  },
+  "p7-10": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t7-10.1" ],
+    "post_arcs": [ "t7-10.2" ]
+  },
+  "p12": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t11-12.2", "t15-12.2" ],
+    "post_arcs": [ "t12-9.1", "t12-11.1" ]
+  },
+  "p12-11": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t12-11.1" ],
+    "post_arcs": [ "t12-11.2" ]
+  },
+  "p11-12": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t11-12.1" ],
+    "post_arcs": [ "t11-12.2" ]
+  },
+  "p11": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t8-11.2", "t12-11.2", "t10-11.2", "t14-11.2" ],
+    "post_arcs": [ "t11-12.1", "t11-10.1", "t11-14.1", "t11-8.1" ]
+  },
+  "p11-10": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t11-10.1" ],
+    "post_arcs": [ "t11-10.2" ]
+  },
+  "p10-11": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t10-11.1" ],
+    "post_arcs": [ "t10-11.2" ]
+  },
+  "p10": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t7-10.2", "t11-10.2" ],
+    "post_arcs": [ "t10-11.1", "t10-13.1" ]
+  },
+  "p15-12": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t15-12.1" ],
+    "post_arcs": [ "t15-12.2" ]
+  },
+  "p14-11": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t14-11.1" ],
+    "post_arcs": [ "t14-11.2" ]
+  },
+  "p11-14": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t11-14.1" ],
+    "post_arcs": [ "t11-14.2" ]
+  },
+  "p10-13": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t10-13.1" ],
+    "post_arcs": [ "t10-13.2" ]
+  },
+  "p15": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t14-15.2", "t18-15.2" ],
+    "post_arcs": [ "t15-12.1", "t15-14.1" ]
+  },
+  "p15-14": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t15-14.1" ],
+    "post_arcs": [ "t15-14.2" ]
+  },
+  "p14-15": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t14-15.1" ],
+    "post_arcs": [ "t14-15.2" ]
+  },
+  "p14": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t11-14.2", "t15-14.2", "t13-14.2", "t17-14.2" ],
+    "post_arcs": [ "t14-15.1", "t14-13.1", "t14-17.1", "t14-11.1" ]
+  },
+  "p14-13": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t14-13.1" ],
+    "post_arcs": [ "t14-13.2" ]
+  },
+  "p13-14": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t13-14.1" ],
+    "post_arcs": [ "t13-14.2" ]
+  },
+  "p13": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t10-13.2", "t14-13.2" ],
+    "post_arcs": [ "t13-14.1", "t13-16.1" ]
+  },
+  "p18-15": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t18-15.1" ],
+    "post_arcs": [ "t18-15.2" ]
+  },
+  "p17-14": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t17-14.1" ],
+    "post_arcs": [ "t17-14.2" ]
+  },
+  "p14-17": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t14-17.1" ],
+    "post_arcs": [ "t14-17.2" ]
+  },
+  "p13-16": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t13-16.1" ],
+    "post_arcs": [ "t13-16.2" ]
+  },
+  "p18": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t17-18.2", "t21-18.2" ],
+    "post_arcs": [ "t18-15.1", "t18-17.1" ]
+  },
+  "p18-17": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t18-17.1" ],
+    "post_arcs": [ "t18-17.2" ]
+  },
+  "p17-18": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t17-18.1" ],
+    "post_arcs": [ "t17-18.2" ]
+  },
+  "p17": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t14-17.2", "t18-17.2", "t16-17.2", "t20-17.2" ],
+    "post_arcs": [ "t17-18.1", "t17-16.1", "t17-20.1", "t17-14.1" ]
+  },
+  "p17-16": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t17-16.1" ],
+    "post_arcs": [ "t17-16.2" ]
+  },
+  "p16-17": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t16-17.1" ],
+    "post_arcs": [ "t16-17.2" ]
+  },
+  "p16": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t13-16.2", "t17-16.2" ],
+    "post_arcs": [ "t16-17.1", "t16-19.1" ]
+  },
+  "p21-18": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t21-18.1" ],
+    "post_arcs": [ "t21-18.2" ]
+  },
+  "p20-17": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t20-17.1" ],
+    "post_arcs": [ "t20-17.2" ]
+  },
+  "p17-20": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t17-20.1" ],
+    "post_arcs": [ "t17-20.2" ]
+  },
+  "p16-19": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t16-19.1" ],
+    "post_arcs": [ "t16-19.2" ]
+  },
+  "p21": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t20-21.2", "t24-21.2" ],
+    "post_arcs": [ "t21-18.1", "t21-20.1" ]
+  },
+  "p21-20": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t21-20.1" ],
+    "post_arcs": [ "t21-20.2" ]
+  },
+  "p20-21": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t20-21.1" ],
+    "post_arcs": [ "t20-21.2" ]
+  },
+  "p20": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t21-20.2", "t19-20.2", "t17-20.2", "t23-20.2" ],
+    "post_arcs": [ "t20-21.1", "t20-23.1", "t20-17.1", "t20-19.1" ]
+  },
+  "p20-19": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t20-19.1" ],
+    "post_arcs": [ "t20-19.2" ]
+  },
+  "p19-20": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t19-20.1" ],
+    "post_arcs": [ "t19-20.2" ]
+  },
+  "p19": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t16-19.2", "t20-19.2" ],
+    "post_arcs": [ "t19-20.1", "t19-22.1" ]
+  },
+  "p24-21": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t24-21.1" ],
+    "post_arcs": [ "t24-21.2" ]
+  },
+  "p23-20": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t23-20.1" ],
+    "post_arcs": [ "t23-20.2" ]
+  },
+  "p20-23": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t20-23.1" ],
+    "post_arcs": [ "t20-23.2" ]
+  },
+  "p19-22": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t19-22.1" ],
+    "post_arcs": [ "t19-22.2" ]
+  },
+  "p24": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t23-24.2", "t27-24.2" ],
+    "post_arcs": [ "t24-21.1", "t24-23.1" ]
+  },
+  "p24-23": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t24-23.1" ],
+    "post_arcs": [ "t24-23.2" ]
+  },
+  "p23-24": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t23-24.1" ],
+    "post_arcs": [ "t23-24.2" ]
+  },
+  "p23": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t20-23.2", "t24-23.2", "t22-23.2", "t26-23.2" ],
+    "post_arcs": [ "t23-24.1", "t23-26.1", "t23-22.1", "t23-20.1" ]
+  },
+  "p23-22": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t23-22.1" ],
+    "post_arcs": [ "t23-22.2" ]
+  },
+  "p22-23": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t22-23.1" ],
+    "post_arcs": [ "t22-23.2" ]
+  },
+  "p22": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t19-22.2", "t23-22.2" ],
+    "post_arcs": [ "t22-23.1", "t22-25.1" ]
+  },
+  "p27-24": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t27-24.1" ],
+    "post_arcs": [ "t27-24.2" ]
+  },
+  "p26-23": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t26-23.1" ],
+    "post_arcs": [ "t26-23.2" ]
+  },
+  "p23-26": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t23-26.1" ],
+    "post_arcs": [ "t23-26.2" ]
+  },
+  "p22-25": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t22-25.1" ],
+    "post_arcs": [ "t22-25.2" ]
+  },
+  "p27": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t26-27.2", "t27.2", "t27.4" ],
+    "post_arcs": [ "t27-24.1", "t27-26.1", "t27.3", "t27.1" ]
+  },
+  "p27-26": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t27-26.1" ],
+    "post_arcs": [ "t27-26.2" ]
+  },
+  "p26-27": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t26-27.1" ],
+    "post_arcs": [ "t26-27.2" ]
+  },
+  "p26": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t23-26.2", "t27-26.2", "t25-26.2" ],
+    "post_arcs": [ "t26-27.1", "t26-23.1", "t26-25.1" ]
+  },
+  "p26-25": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t26-25.1" ],
+    "post_arcs": [ "t26-25.2" ]
+  },
+  "p25-26": {
+    "delay": 3,
+    "capacity": 1,
+    "pre_arcs": [ "t25-26.1" ],
+    "post_arcs": [ "t25-26.2" ]
+  },
+  "p25": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t22-25.2", "t26-25.2", "t25.2", "t25.4" ],
+    "post_arcs": [ "t25-26.1", "t25.1", "t25.3" ]
+  },
+  "p27.4": {
+    "delay": 0,
+    "capacity": 12,
+    "pre_arcs": [ "t27.2" ],
+    "post_arcs": [ "t27.3" ]
+  },
+  "p27.3": {
+    "delay": 12,
+    "capacity": 1,
+    "pre_arcs": [ "t27.1" ],
+    "post_arcs": [ "t27.2" ]
+  },
+  "p27.1": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t27.2", "t27.4" ],
+    "post_arcs": [ "t27.3", "t27.1" ]
+  },
+  "p27.2": {
+    "delay": 12,
+    "capacity": 1,
+    "pre_arcs": [ "t27.3" ],
+    "post_arcs": [ "t27.4" ]
+  },
+  "p4.4": {
+    "delay": 0,
+    "capacity": 12,
+    "pre_arcs": [ "t4.2" ],
+    "post_arcs": [ "t4.3" ]
+  },
+  "p4.3": {
+    "delay": 12,
+    "capacity": 1,
+    "pre_arcs": [ "t4.1" ],
+    "post_arcs": [ "t4.2" ]
+  },
+  "p4.1": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t4.2", "t4.4" ],
+    "post_arcs": [ "t4.3", "t4.1" ]
+  },
+  "p4.2": {
+    "delay": 12,
+    "capacity": 1,
+    "pre_arcs": [ "t4.3" ],
+    "post_arcs": [ "t4.4" ]
+  },
+  "p25.4": {
+    "delay": 0,
+    "capacity": 12,
+    "pre_arcs": [ "t25.2" ],
+    "post_arcs": [ "t25.3" ]
+  },
+  "p25.3": {
+    "delay": 12,
+    "capacity": 1,
+    "pre_arcs": [ "t25.1" ],
+    "post_arcs": [ "t25.2" ]
+  },
+  "p25.1": {
+    "delay": 0,
+    "capacity": 1,
+    "pre_arcs": [ "t25.2", "t25.4" ],
+    "post_arcs": [ "t25.3", "t25.1" ]
+  },
+  "p25.2": {
+    "delay": 12,
+    "capacity": 1,
+    "pre_arcs": [ "t25.3" ],
+    "post_arcs": [ "t25.4" ]
+  }
+}

@@ -1,0 +1,690 @@
+{
+  "t6.2": {
+    "pre_arcs": { "p6.3": [ "action_in" ] },
+    "post_arcs": {
+      "p6.4": [ "workpiece" ],
+      "p6": [ "agv" ],
+      "p6.1": [ "robot" ]
+    }
+  },
+  "t6.3": {
+    "pre_arcs": {
+      "p6.4": [ "workpiece" ],
+      "p6": [ "agv" ],
+      "p6.1": [ "robot" ]
+    },
+    "post_arcs": { "p6.2": [ "action_out" ] }
+  },
+  "t6.1": {
+    "pre_arcs": {
+      "p6": [ "agv_workpiece" ],
+      "p6.1": [ "robot" ]
+    },
+    "post_arcs": { "p6.3": [ "action_in" ] }
+  },
+  "t6.4": {
+    "pre_arcs": { "p6.2": [ "action_out" ] },
+    "post_arcs": {
+      "p6": [ "agv_workpiece" ],
+      "p6.1": [ "robot" ]
+    }
+  },
+  "t6-3.2": {
+    "pre_arcs": { "p6-3": [ "agv", "agv_workpiece" ] },
+    "post_arcs": {
+      "p3": [ "agv", "agv_workpiece" ]
+    }
+  },
+  "t3-2.1": {
+    "pre_arcs": { "p3": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p3-2": [ "agv", "agv_workpiece" ] }
+  },
+  "t2-3.2": {
+    "pre_arcs": { "p2-3": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p3": [ "agv", "agv_workpiece" ] }
+  },
+  "t3-2.2": {
+    "pre_arcs": { "p3-2": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p2": [ "agv", "agv_workpiece" ] }
+  },
+  "t2-3.1": {
+    "pre_arcs": { "p2": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p2-3": [ "agv", "agv_workpiece" ] }
+  },
+  "t5-2.2": {
+    "pre_arcs": { "p5-2": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p2": [ "agv", "agv_workpiece" ] }
+  },
+  "t2-5.1": {
+    "pre_arcs": { "p2": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p2-5": [ "agv", "agv_workpiece" ] }
+  },
+  "t2-1.1": {
+    "pre_arcs": { "p2": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p2-1": [ "agv", "agv_workpiece" ] }
+  },
+  "t1-2.2": {
+    "pre_arcs": { "p1-2": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p2": [ "agv", "agv_workpiece" ] }
+  },
+  "t2-1.2": {
+    "pre_arcs": { "p2-1": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p1": [ "agv", "agv_workpiece" ] }
+  },
+  "t1-2.1": {
+    "pre_arcs": { "p1": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p1-2": [ "agv", "agv_workpiece" ] }
+  },
+  "t1-4.1": {
+    "pre_arcs": { "p1": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p1-4": [ "agv", "agv_workpiece" ] }
+  },
+  "t6-3.1": {
+    "pre_arcs": { "p6": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p6-3": [ "agv", "agv_workpiece" ] }
+  },
+  "t5-2.1": {
+    "pre_arcs": { "p5": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p5-2": [ "agv", "agv_workpiece" ] }
+  },
+  "t2-5.2": {
+    "pre_arcs": { "p2-5": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p5": [ "agv", "agv_workpiece" ] }
+  },
+  "t1-4.2": {
+    "pre_arcs": { "p1-4": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p4": [ "agv", "agv_workpiece" ] }
+  },
+  "t6-5.1": {
+    "pre_arcs": { "p6": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p6-5": [ "agv", "agv_workpiece" ] }
+  },
+  "t5-6.2": {
+    "pre_arcs": { "p5-6": [ "agv", "agv_workpiece" ] },
+    "post_arcs": {
+      "p6": [ "agv", "agv_workpiece" ]
+    }
+  },
+  "t6-5.2": {
+    "pre_arcs": { "p6-5": [ "agv", "agv_workpiece" ] },
+    "post_arcs": {
+      "p5": [ "agv", "agv_workpiece" ]
+    }
+  },
+  "t5-6.1": {
+    "pre_arcs": {
+      "p5": [ "agv", "agv_workpiece" ]
+    },
+    "post_arcs": { "p5-6": [ "agv", "agv_workpiece" ] }
+  },
+  "t5-4.1": {
+    "pre_arcs": { "p5": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p5-4": [ "agv", "agv_workpiece" ] }
+  },
+  "t4-5.2": {
+    "pre_arcs": { "p4-5": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p5": [ "agv", "agv_workpiece" ] }
+  },
+  "t5-4.2": {
+    "pre_arcs": { "p5-4": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p4": [ "agv", "agv_workpiece" ] }
+  },
+  "t4-5.1": {
+    "pre_arcs": { "p4": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p4-5": [ "agv", "agv_workpiece" ] }
+  },
+  "t9-6.2": {
+    "pre_arcs": { "p9-6": [ "agv", "agv_workpiece" ] },
+    "post_arcs": {
+      "p6": [ "agv", "agv_workpiece" ]
+    }
+  },
+  "t8-5.2": {
+    "pre_arcs": { "p8-5": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p5": [ "agv", "agv_workpiece" ] }
+  },
+  "t5-8.1": {
+    "pre_arcs": { "p5": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p5-8": [ "agv", "agv_workpiece" ] }
+  },
+  "t4-7.1": {
+    "pre_arcs": { "p4": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p4-7": [ "agv", "agv_workpiece" ] }
+  },
+  "t9-6.1": {
+    "pre_arcs": {
+      "p9": [ "agv", "agv_workpiece" ]
+    },
+    "post_arcs": { "p9-6": [ "agv", "agv_workpiece" ] }
+  },
+  "t8-5.1": {
+    "pre_arcs": { "p8": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p8-5": [ "agv", "agv_workpiece" ] }
+  },
+  "t5-8.2": {
+    "pre_arcs": { "p5-8": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p8": [ "agv", "agv_workpiece" ] }
+  },
+  "t4-7.2": {
+    "pre_arcs": { "p4-7": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p7": [ "agv", "agv_workpiece" ] }
+  },
+  "t9-8.1": {
+    "pre_arcs": { "p9": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p9-8": [ "agv", "agv_workpiece" ] }
+  },
+  "t8-9.2": {
+    "pre_arcs": { "p8-9": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p9": [ "agv", "agv_workpiece" ] }
+  },
+  "t9-8.2": {
+    "pre_arcs": { "p9-8": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p8": [ "agv", "agv_workpiece" ] }
+  },
+  "t8-9.1": {
+    "pre_arcs": { "p8": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p8-9": [ "agv", "agv_workpiece" ] }
+  },
+  "t8-7.1": {
+    "pre_arcs": { "p8": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p8-7": [ "agv", "agv_workpiece" ] }
+  },
+  "t7-8.2": {
+    "pre_arcs": { "p7-8": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p8": [ "agv", "agv_workpiece" ] }
+  },
+  "t8-7.2": {
+    "pre_arcs": { "p8-7": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p7": [ "agv", "agv_workpiece" ] }
+  },
+  "t7-8.1": {
+    "pre_arcs": { "p7": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p7-8": [ "agv", "agv_workpiece" ] }
+  },
+  "t12-9.2": {
+    "pre_arcs": { "p12-9": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p9": [ "agv", "agv_workpiece" ] }
+  },
+  "t11-8.2": {
+    "pre_arcs": { "p11-8": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p8": [ "agv", "agv_workpiece" ] }
+  },
+  "t8-11.1": {
+    "pre_arcs": { "p8": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p8-11": [ "agv", "agv_workpiece" ] }
+  },
+  "t7-10.1": {
+    "pre_arcs": { "p7": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p7-10": [ "agv", "agv_workpiece" ] }
+  },
+  "t12-9.1": {
+    "pre_arcs": { "p12": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p12-9": [ "agv", "agv_workpiece" ] }
+  },
+  "t11-8.1": {
+    "pre_arcs": { "p11": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p11-8": [ "agv", "agv_workpiece" ] }
+  },
+  "t8-11.2": {
+    "pre_arcs": { "p8-11": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p11": [ "agv", "agv_workpiece" ] }
+  },
+  "t7-10.2": {
+    "pre_arcs": { "p7-10": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p10": [ "agv", "agv_workpiece" ] }
+  },
+  "t12-11.1": {
+    "pre_arcs": { "p12": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p12-11": [ "agv", "agv_workpiece" ] }
+  },
+  "t11-12.2": {
+    "pre_arcs": { "p11-12": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p12": [ "agv", "agv_workpiece" ] }
+  },
+  "t12-11.2": {
+    "pre_arcs": { "p12-11": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p11": [ "agv", "agv_workpiece" ] }
+  },
+  "t11-12.1": {
+    "pre_arcs": { "p11": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p11-12": [ "agv", "agv_workpiece" ] }
+  },
+  "t11-10.1": {
+    "pre_arcs": { "p11": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p11-10": [ "agv", "agv_workpiece" ] }
+  },
+  "t10-11.2": {
+    "pre_arcs": { "p10-11": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p11": [ "agv", "agv_workpiece" ] }
+  },
+  "t11-10.2": {
+    "pre_arcs": { "p11-10": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p10": [ "agv", "agv_workpiece" ] }
+  },
+  "t10-11.1": {
+    "pre_arcs": { "p10": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p10-11": [ "agv", "agv_workpiece" ] }
+  },
+  "t15-12.2": {
+    "pre_arcs": { "p15-12": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p12": [ "agv", "agv_workpiece" ] }
+  },
+  "t14-11.2": {
+    "pre_arcs": { "p14-11": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p11": [ "agv", "agv_workpiece" ] }
+  },
+  "t11-14.1": {
+    "pre_arcs": { "p11": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p11-14": [ "agv", "agv_workpiece" ] }
+  },
+  "t10-13.1": {
+    "pre_arcs": { "p10": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p10-13": [ "agv", "agv_workpiece" ] }
+  },
+  "t15-12.1": {
+    "pre_arcs": { "p15": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p15-12": [ "agv", "agv_workpiece" ] }
+  },
+  "t14-11.1": {
+    "pre_arcs": { "p14": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p14-11": [ "agv", "agv_workpiece" ] }
+  },
+  "t11-14.2": {
+    "pre_arcs": { "p11-14": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p14": [ "agv", "agv_workpiece" ] }
+  },
+  "t10-13.2": {
+    "pre_arcs": { "p10-13": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p13": [ "agv", "agv_workpiece" ] }
+  },
+  "t15-14.1": {
+    "pre_arcs": { "p15": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p15-14": [ "agv", "agv_workpiece" ] }
+  },
+  "t14-15.2": {
+    "pre_arcs": { "p14-15": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p15": [ "agv", "agv_workpiece" ] }
+  },
+  "t15-14.2": {
+    "pre_arcs": { "p15-14": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p14": [ "agv", "agv_workpiece" ] }
+  },
+  "t14-15.1": {
+    "pre_arcs": { "p14": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p14-15": [ "agv", "agv_workpiece" ] }
+  },
+  "t14-13.1": {
+    "pre_arcs": { "p14": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p14-13": [ "agv", "agv_workpiece" ] }
+  },
+  "t13-14.2": {
+    "pre_arcs": { "p13-14": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p14": [ "agv", "agv_workpiece" ] }
+  },
+  "t14-13.2": {
+    "pre_arcs": { "p14-13": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p13": [ "agv", "agv_workpiece" ] }
+  },
+  "t13-14.1": {
+    "pre_arcs": { "p13": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p13-14": [ "agv", "agv_workpiece" ] }
+  },
+  "t18-15.2": {
+    "pre_arcs": { "p18-15": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p15": [ "agv", "agv_workpiece" ] }
+  },
+  "t17-14.2": {
+    "pre_arcs": { "p17-14": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p14": [ "agv", "agv_workpiece" ] }
+  },
+  "t14-17.1": {
+    "pre_arcs": { "p14": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p14-17": [ "agv", "agv_workpiece" ] }
+  },
+  "t13-16.1": {
+    "pre_arcs": { "p13": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p13-16": [ "agv", "agv_workpiece" ] }
+  },
+  "t18-15.1": {
+    "pre_arcs": { "p18": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p18-15": [ "agv", "agv_workpiece" ] }
+  },
+  "t17-14.1": {
+    "pre_arcs": { "p17": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p17-14": [ "agv", "agv_workpiece" ] }
+  },
+  "t14-17.2": {
+    "pre_arcs": { "p14-17": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p17": [ "agv", "agv_workpiece" ] }
+  },
+  "t13-16.2": {
+    "pre_arcs": { "p13-16": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p16": [ "agv", "agv_workpiece" ] }
+  },
+  "t18-17.1": {
+    "pre_arcs": { "p18": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p18-17": [ "agv", "agv_workpiece" ] }
+  },
+  "t17-18.2": {
+    "pre_arcs": { "p17-18": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p18": [ "agv", "agv_workpiece" ] }
+  },
+  "t18-17.2": {
+    "pre_arcs": { "p18-17": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p17": [ "agv", "agv_workpiece" ] }
+  },
+  "t17-18.1": {
+    "pre_arcs": { "p17": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p17-18": [ "agv", "agv_workpiece" ] }
+  },
+  "t17-16.1": {
+    "pre_arcs": { "p17": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p17-16": [ "agv", "agv_workpiece" ] }
+  },
+  "t16-17.2": {
+    "pre_arcs": { "p16-17": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p17": [ "agv", "agv_workpiece" ] }
+  },
+  "t17-16.2": {
+    "pre_arcs": { "p17-16": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p16": [ "agv", "agv_workpiece" ] }
+  },
+  "t16-17.1": {
+    "pre_arcs": { "p16": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p16-17": [ "agv", "agv_workpiece" ] }
+  },
+  "t21-18.2": {
+    "pre_arcs": { "p21-18": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p18": [ "agv", "agv_workpiece" ] }
+  },
+  "t20-17.2": {
+    "pre_arcs": { "p20-17": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p17": [ "agv", "agv_workpiece" ] }
+  },
+  "t17-20.1": {
+    "pre_arcs": { "p17": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p17-20": [ "agv", "agv_workpiece" ] }
+  },
+  "t16-19.1": {
+    "pre_arcs": { "p16": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p16-19": [ "agv", "agv_workpiece" ] }
+  },
+  "t21-18.1": {
+    "pre_arcs": { "p21": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p21-18": [ "agv", "agv_workpiece" ] }
+  },
+  "t20-17.1": {
+    "pre_arcs": { "p20": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p20-17": [ "agv", "agv_workpiece" ] }
+  },
+  "t17-20.2": {
+    "pre_arcs": { "p17-20": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p20": [ "agv", "agv_workpiece" ] }
+  },
+  "t16-19.2": {
+    "pre_arcs": { "p16-19": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p19": [ "agv", "agv_workpiece" ] }
+  },
+  "t21-20.1": {
+    "pre_arcs": { "p21": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p21-20": [ "agv", "agv_workpiece" ] }
+  },
+  "t20-21.2": {
+    "pre_arcs": { "p20-21": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p21": [ "agv", "agv_workpiece" ] }
+  },
+  "t21-20.2": {
+    "pre_arcs": { "p21-20": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p20": [ "agv", "agv_workpiece" ] }
+  },
+  "t20-21.1": {
+    "pre_arcs": { "p20": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p20-21": [ "agv", "agv_workpiece" ] }
+  },
+  "t20-19.1": {
+    "pre_arcs": { "p20": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p20-19": [ "agv", "agv_workpiece" ] }
+  },
+  "t20-19.2": {
+    "pre_arcs": { "p20-19": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p19": [ "agv", "agv_workpiece" ] }
+  },
+  "t19-20.2": {
+    "pre_arcs": { "p19-20": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p20": [ "agv", "agv_workpiece" ] }
+  },
+  "t19-20.1": {
+    "pre_arcs": { "p19": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p19-20": [ "agv", "agv_workpiece" ] }
+  },
+  "t24-21.2": {
+    "pre_arcs": { "p24-21": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p21": [ "agv", "agv_workpiece" ] }
+  },
+  "t23-20.2": {
+    "pre_arcs": { "p23-20": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p20": [ "agv", "agv_workpiece" ] }
+  },
+  "t20-23.1": {
+    "pre_arcs": { "p20": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p20-23": [ "agv", "agv_workpiece" ] }
+  },
+  "t19-22.1": {
+    "pre_arcs": { "p19": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p19-22": [ "agv", "agv_workpiece" ] }
+  },
+  "t24-21.1": {
+    "pre_arcs": { "p24": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p24-21": [ "agv", "agv_workpiece" ] }
+  },
+  "t23-20.1": {
+    "pre_arcs": { "p23": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p23-20": [ "agv", "agv_workpiece" ] }
+  },
+  "t20-23.2": {
+    "pre_arcs": { "p20-23": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p23": [ "agv", "agv_workpiece" ] }
+  },
+  "t19-22.2": {
+    "pre_arcs": { "p19-22": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p22": [ "agv", "agv_workpiece" ] }
+  },
+  "t24-23.1": {
+    "pre_arcs": { "p24": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p24-23": [ "agv", "agv_workpiece" ] }
+  },
+  "t23-24.2": {
+    "pre_arcs": { "p23-24": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p24": [ "agv", "agv_workpiece" ] }
+  },
+  "t24-23.2": {
+    "pre_arcs": { "p24-23": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p23": [ "agv", "agv_workpiece" ] }
+  },
+  "t23-24.1": {
+    "pre_arcs": { "p23": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p23-24": [ "agv", "agv_workpiece" ] }
+  },
+  "t23-22.1": {
+    "pre_arcs": { "p23": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p23-22": [ "agv", "agv_workpiece" ] }
+  },
+  "t23-22.2": {
+    "pre_arcs": { "p23-22": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p22": [ "agv", "agv_workpiece" ] }
+  },
+  "t22-23.2": {
+    "pre_arcs": { "p22-23": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p23": [ "agv", "agv_workpiece" ] }
+  },
+  "t22-23.1": {
+    "pre_arcs": { "p22": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p22-23": [ "agv", "agv_workpiece" ] }
+  },
+  "t27-24.2": {
+    "pre_arcs": { "p27-24": [ "agv", "agv_workpiece" ] },
+    "post_arcs": {
+      "p24": [ "agv", "agv_workpiece" ]
+    }
+  },
+  "t26-23.2": {
+    "pre_arcs": { "p26-23": [ "agv", "agv_workpiece" ] },
+    "post_arcs": {
+      "p23": [ "agv", "agv_workpiece" ]
+    }
+  },
+  "t23-26.1": {
+    "pre_arcs": { "p23": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p23-26": [ "agv", "agv_workpiece" ] }
+  },
+  "t22-25.1": {
+    "pre_arcs": { "p22": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p22-25": [ "agv", "agv_workpiece" ] }
+  },
+  "t27-24.1": {
+    "pre_arcs": { "p27": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p27-24": [ "agv", "agv_workpiece" ] }
+  },
+  "t26-23.1": {
+    "pre_arcs": { "p26": [ "agv", "agv_workpiece" ] },
+    "post_arcs": {
+      "p26-23": [ "agv", "agv_workpiece" ]
+    }
+  },
+  "t23-26.2": {
+    "pre_arcs": { "p23-26": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p26": [ "agv", "agv_workpiece" ] }
+  },
+  "t22-25.2": {
+    "pre_arcs": { "p22-25": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p25": [ "agv", "agv_workpiece" ] }
+  },
+  "t27-26.1": {
+    "pre_arcs": { "p27": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p27-26": [ "agv", "agv_workpiece" ] }
+  },
+  "t26-27.2": {
+    "pre_arcs": {
+      "p26-27": [ "agv", "agv_workpiece" ]
+    },
+    "post_arcs": {
+      "p27": [ "agv", "agv_workpiece" ]
+    }
+  },
+  "t27-26.2": {
+    "pre_arcs": { "p27-26": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p26": [ "agv", "agv_workpiece" ] }
+  },
+  "t26-27.1": {
+    "pre_arcs": {
+      "p26": [ "agv", "agv_workpiece" ]
+    },
+    "post_arcs": { "p26-27": [ "agv", "agv_workpiece" ] }
+  },
+  "t26-25.1": {
+    "pre_arcs": { "p26": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p26-25": [ "agv", "agv_workpiece" ] }
+  },
+  "t26-25.2": {
+    "pre_arcs": { "p26-25": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p25": [ "agv", "agv_workpiece" ] }
+  },
+  "t25-26.2": {
+    "pre_arcs": { "p25-26": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p26": [ "agv", "agv_workpiece" ] }
+  },
+  "t25-26.1": {
+    "pre_arcs": { "p25": [ "agv", "agv_workpiece" ] },
+    "post_arcs": { "p25-26": [ "agv", "agv_workpiece" ] }
+  },
+  "t27.2": {
+    "pre_arcs": { "p27.3": [ "action_in" ] },
+    "post_arcs": {
+      "p27.4": [ "workpiece" ],
+      "p27.1": [ "robot" ],
+      "p27": [ "agv" ]
+    }
+  },
+  "t27.3": {
+    "pre_arcs": {
+      "p27.4": [ "workpiece" ],
+      "p27.1": [ "robot" ],
+      "p27": [ "agv" ]
+    },
+    "post_arcs": { "p27.2": [ "action_out" ] }
+  },
+  "t27.1": {
+    "pre_arcs": {
+      "p27": [ "agv_workpiece" ],
+      "p27.1": [ "robot" ]
+    },
+    "post_arcs": { "p27.3": [ "action_in" ] }
+  },
+  "t27.4": {
+    "pre_arcs": { "p27.2": [ "action_out" ] },
+    "post_arcs": {
+      "p27.1": [ "robot" ],
+      "p27": [ "agv_workpiece" ]
+    }
+  },
+  "t25.2": {
+    "pre_arcs": { "p25.3": [ "action_in" ] },
+    "post_arcs": {
+      "p25.4": [ "workpiece" ],
+      "p25.1": [ "robot" ],
+      "p25": [ "agv" ]
+    }
+  },
+  "t25.3": {
+    "pre_arcs": {
+      "p25.4": [ "workpiece" ],
+      "p25.1": [ "robot" ],
+      "p25": [ "agv" ]
+    },
+    "post_arcs": { "p25.2": [ "action_out" ] }
+  },
+  "t25.1": {
+    "pre_arcs": {
+      "p25": [ "agv_workpiece" ],
+      "p25.1": [ "robot" ]
+    },
+    "post_arcs": { "p25.3": [ "action_in" ] }
+  },
+  "t25.4": {
+    "pre_arcs": { "p25.2": [ "action_out" ] },
+    "post_arcs": {
+      "p25.1": [ "robot" ],
+      "p25": [ "agv_workpiece" ]
+    }
+  },
+  "t4.2": {
+    "pre_arcs": { "p4.3": [ "action_in" ] },
+    "post_arcs": {
+      "p4.4": [ "workpiece" ],
+      "p4.1": [ "robot" ],
+      "p4": [ "agv" ]
+    }
+  },
+  "t4.3": {
+    "pre_arcs": {
+      "p4.4": [ "workpiece" ],
+      "p4.1": [ "robot" ],
+      "p4": [ "agv" ]
+    },
+    "post_arcs": { "p4.2": [ "action_out" ] }
+  },
+  "t4.1": {
+    "pre_arcs": {
+      "p4": [ "agv_workpiece" ],
+      "p4.1": [ "robot" ]
+    },
+    "post_arcs": { "p4.3": [ "action_in" ] }
+  },
+  "t4.4": {
+    "pre_arcs": { "p4.2": [ "action_out" ] },
+    "post_arcs": {
+      "p4.1": [ "robot" ],
+      "p4": [ "agv_workpiece" ]
+    }
+  }
+}
