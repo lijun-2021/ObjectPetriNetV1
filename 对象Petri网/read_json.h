@@ -53,6 +53,7 @@ inline void read_trans_json(Petrinet petrinet) {
     std::ifstream ifs(Transition_path);
     if (!ifs.is_open()) {
         std::cerr << "Failed to open file" << std::endl;
+        return;
     }
     // 读取JSON数据
     rapidjson::IStreamWrapper isw(ifs);
@@ -62,6 +63,7 @@ inline void read_trans_json(Petrinet petrinet) {
     //是否解析成功
     if (doc.HasParseError()) {
         std::cerr << "Failed to parse JSON" << std::endl;
+        return;
     }
     // 遍历每个对象
     for (auto itr1 = doc.MemberBegin(); itr1 != doc.MemberEnd(); ++itr1) {
@@ -94,6 +96,7 @@ inline void read_tokens_json(Petrinet petrinet) {
     std::ifstream ifs(Token_path);
     if (!ifs.is_open()) {
         std::cerr << "Failed to open file" << std::endl;
+        return;
     }
     // 读取JSON数据
     rapidjson::IStreamWrapper isw(ifs);
@@ -103,6 +106,7 @@ inline void read_tokens_json(Petrinet petrinet) {
     //是否解析成功
     if (doc.HasParseError()) {
         std::cerr << "Failed to parse JSON" << std::endl;
+        return;
     }
     //auto test = doc["original_state"].GetObject().begin()->value["inplace"].GetString();
     for (auto itr1 = doc["original_state"].GetObject().begin(); itr1 != doc["original_state"].GetObject().end(); ++itr1) {

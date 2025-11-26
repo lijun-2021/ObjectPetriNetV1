@@ -40,8 +40,9 @@ bool Petrinet::judge_possible_firable_trans(multimap<string, shared_ptr<Token>> 
     //2.前置库所中的托肯应该满足弧上定义的规则
     for (string pre_place_name : transitions[trans_name]->pre_places) {
         bool place_lock = false;
+        auto m_range = m.equal_range(pre_place_name);
         for (int i = 0; i < transitions[trans_name]->fire_rule[pre_place_name].size(); ++i) {
-            for (auto it = m.equal_range(pre_place_name).first; it != m.equal_range(pre_place_name).second; ++it) {
+            for (auto it = m_range.first; it != m_range.second; ++it) {
                 if (it->second->token_attribute == transitions[trans_name]->fire_rule[pre_place_name][i]) {
                     place_lock = true;
                     break;
@@ -95,9 +96,10 @@ void Petrinet::fire_trans_get_newnode(shared_ptr<Node>expand_node_temp, shared_p
     //消去该变迁前置库所中托肯
     for (string pre_place_name : transitions[trans_name]->pre_places) {
         auto& fire_rule = transitions[trans_name]->fire_rule;
+        auto m_range = expand_node_temp->marking.equal_range(pre_place_name);
         for (int i = 0; i < fire_rule[pre_place_name].size(); i++) {
             //
-            if (expand_node_temp->marking.equal_range(pre_place_name).first->second->token_attribute == fire_rule[pre_place_name][i]) {
+            if (m_range.first->second->token_attribute == fire_rule[pre_place_name][i]) {
                 arc_num = i;
             }
             else if (arc_num >= 0) { break; }
