@@ -3,6 +3,7 @@
 #include"Petrinet.h"
 #include"read_json.h"
 #include"Process.h"
+using namespace std;
 
 int main() {
 	Petrinet petrinet;

@@ -139,12 +139,7 @@ void Petrinet::fire_trans_get_newnode(shared_ptr<Node>expand_node_temp, shared_p
 void Petrinet::newnode_deal(shared_ptr<Node> new_node)
 {
     bool judge_new_node_result = judage_new_node(new_node);
-    if (judge_new_node_result == 0) {
-        expand_node->son_action.emplace_back(new_node, Fire_tran);
-        node_list.emplace(createKey(new_node->marking), new_node);
-        open_list.emplace(new_node);
-    }
-    else if (judge_new_node_result == 2) {
+    if (judge_new_node_result == 0 || judge_new_node_result == 2) {
         expand_node->son_action.emplace_back(new_node, Fire_tran);
         node_list.emplace(createKey(new_node->marking), new_node);
         open_list.emplace(new_node);
