@@ -104,7 +104,7 @@ void Petrinet::fire_trans_get_newnode(shared_ptr<Node>expand_node_temp, shared_p
             }
             else if (arc_num >= 0) { break; }
         }
-        auto cut_token_ptr = expand_node_temp->marking.equal_range(pre_place_name).first;
+        auto cut_token_ptr = m_range.first;
         if (lamda < places[pre_place_name]->delay - cut_token_ptr->second->waiting_time) {
             lamda = places[pre_place_name]->delay - cut_token_ptr->second->waiting_time;
         }
