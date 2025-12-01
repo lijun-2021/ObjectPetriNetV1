@@ -15,7 +15,7 @@ constexpr auto Transition_path = "./data/agv_way_trans.json";
 constexpr auto Token_path = "./data/agv_way_token1_4.json";
 
 //读取json文件，初始化库所信息
-inline void read_place_json(Petrinet petrinet) {
+inline void read_place_json(Petrinet& petrinet) {
     //流文件打开json文件
     std::ifstream ifs(Place_path);//创建输入文件流对象
     if (!ifs.is_open()) {
@@ -48,7 +48,7 @@ inline void read_place_json(Petrinet petrinet) {
     }
 }
 //读取json文件，初始化变迁信息
-inline void read_trans_json(Petrinet petrinet) {
+inline void read_trans_json(Petrinet& petrinet) {
     //流文件打开json文件
     std::ifstream ifs(Transition_path);
     if (!ifs.is_open()) {
@@ -91,7 +91,7 @@ inline void read_trans_json(Petrinet petrinet) {
     }
 }
 //读取json文件，初始化变迁信息
-inline void read_tokens_json(Petrinet petrinet) {
+inline void read_tokens_json(Petrinet& petrinet) {
     //流文件打开json文件
     std::ifstream ifs(Token_path);
     if (!ifs.is_open()) {
