@@ -41,9 +41,9 @@ public:
 
 	deque<tuple<multimap<string, shared_ptr<Token>>, string,int>>bestpath;//最优路径(状态和激发变迁、g值)，双端队列
 
-	vector<string>search_firable_transition(multimap<string, shared_ptr<Token>>m);//寻找可激发变迁  F1
-	set<string>Get_possible_firable_trans(multimap<string, shared_ptr<Token>> m);//存储有token的库所其后置变迁可能是可激发变迁，并用中间变量（possible_firable_trans）存储 F1-1
-	bool judge_possible_firable_trans(multimap<string, shared_ptr<Token>> m, string trans_name);//对possible_firable_trans里的每个变迁进行筛选(1.前置库所都要有弧上对应类型的token 2.后置库所需要满足容量要求) F1-2
+	vector<string>search_firable_transition(const multimap<string, shared_ptr<Token>>& m);//寻找可激发变迁  F1
+	set<string>Get_possible_firable_trans(const multimap<string, shared_ptr<Token>>& m);//存储有token的库所其后置变迁可能是可激发变迁，并用中间变量（possible_firable_trans）存储 F1-1
+	bool judge_possible_firable_trans(const multimap<string, shared_ptr<Token>>& m, string trans_name);//对possible_firable_trans里的每个变迁进行筛选(1.前置库所都要有弧上对应类型的token 2.后置库所需要满足容量要求) F1-2
 
 	multimap<string, shared_ptr<Node>>node_list;//节点表
 
@@ -58,10 +58,18 @@ public:
 	string createKey(multimap<string, shared_ptr<Token>>m);//创建该状态的key值 F3_1_1
 	void fire_trans_get_newnode(shared_ptr<Node> expand_node_temp, shared_ptr<Node> new_node, string trans_name);//激发可激发变迁,获得新节点 F3_2
 	void newnode_deal(shared_ptr<Node> new_node);//对于新节点新旧判断后的处理 F3_3
-	int judage_new_node(shared_ptr<Node> new_node);//新旧节点判断 F3_3_1 (0:无重复状态的新节点或者是时间轴判断无法确定的节点 1:时间轴判断完全重复节点（需要记住节点表内的“优秀节点”，后续需要存边）2:时间轴判断确定的全新节点（需要记住节点表内的“坏节点”，后续需要删除）)
+
+	// 返回值枚举，替代原来的 0/1/2/3 魔法数字
+	enum node_type_judge {
+		new_node,			// 原 0: 无重复状态的新节点或者时间轴判断无法确定的节点
+		duplicate_node = 1, // 原 1: 时间轴判断为完全重复的节点（记录优秀节点）
+		better_node = 2,    // 原 2: 新节点在时间轴上优于已有节点（删除旧节点）
+		useless_node = 3    // 原 3: 无用节点
+	};
+	node_type_judge judge_new_node(shared_ptr<Node> new_node);//新旧节点判断 F3_3_1 (0:无重复状态的新节点或者是时间轴判断无法确定的节点 1:时间轴判断完全重复节点（需要记住节点表内的“优秀节点”，后续需要存边）2:时间轴判断确定的全新节点（需要记住节点表内的“坏节点”，后续需要删除）)
 
 	/***************************************dijkstra_search**********************************************************/
 	void dijskstra_search();//dijkstra搜索算法 F4
 	bool is_dijkstra_continue();//dijistra是否继续搜索 F4_1
-	deque<tuple<multimap<string, shared_ptr<Token>>, string,int>>Createbestpath();
+	void Createbestpath();
 };

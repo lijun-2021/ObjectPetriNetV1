@@ -1,65 +1,94 @@
 #include "Petrinet.h"
 
 /*********************************************寻找可激发变迁********************************************/
-vector<string> Petrinet::search_firable_transition(multimap<string, shared_ptr<Token>> m)
+vector<string> Petrinet::search_firable_transition(const multimap<string, shared_ptr<Token>>& m)
 {
-    vector<string>firable_trans;
-    set<string>possible_firable_trans;
-    //存储有token的库所其后置变迁可能是可激发变迁，并用中间变量（possible_firable_trans）存储
-    possible_firable_trans = Get_possible_firable_trans(m);
-    //对possible_firable_trans里的每个变迁进行筛选(1.前置库所都要有弧上对应类型的token 2.后置库所需要满足容量要求)
-    for (auto it = possible_firable_trans.begin(); it != possible_firable_trans.end(); ++it) {
-        if (judge_possible_firable_trans(m, it->c_str())) {
-            firable_trans.emplace_back(it->c_str());
+    vector<string> firable_trans;
+    // 先获取候选变迁集合（去重）
+    auto possible_firable_trans = Get_possible_firable_trans(m);
+
+    // 对候选变迁筛选（前置库所、属性、后置容量约束）
+    for (const auto& trans_name : possible_firable_trans) {
+        if (judge_possible_firable_trans(m, trans_name)) {
+            firable_trans.emplace_back(trans_name);
         }
     }
     return firable_trans;
 }
+
 /****function::Get_possible_firable_trans****/
-set<string> Petrinet::Get_possible_firable_trans(multimap<string, shared_ptr<Token>> m) {
-    set<string>possible_firable_trans;
-    for (auto itr = m.begin(); itr != m.end(); ++itr) {
-        auto& place_name = itr->first;
-        for (auto post_trans : places[place_name]->post_arcs) {
-            possible_firable_trans.emplace(post_trans);
+set<string> Petrinet::Get_possible_firable_trans(const multimap<string, shared_ptr<Token>>& m) 
+{
+    set<string> possible_firable_trans;
+    // 由于multimap是有序的，我们可以利用键的相邻性
+    for (auto itr = m.begin(); itr != m.end(); ) {
+        const auto& place_name = itr->first;
+
+        // 安全检查：确保库所存在
+        auto place_iter = places.find(place_name);
+        if (place_iter != places.end()) {
+            // 添加该库所的所有后继变迁
+            for (const auto& post_trans : place_iter->second->post_arcs) {
+                possible_firable_trans.emplace(post_trans);
+            }
         }
+
+        // 跳过相同库所的其他token
+        itr = m.upper_bound(place_name);
     }
     return possible_firable_trans;
 }
+
 /****function::judge_possible_firable_trans****/
-bool Petrinet::judge_possible_firable_trans(multimap<string, shared_ptr<Token>> m, string trans_name)
+bool Petrinet::judge_possible_firable_trans(const multimap<string, shared_ptr<Token>>& m, string trans_name)
 {
-    //判断改变迁的前置库所是否满足条件
-    //1.前置库所中都应该有托肯
-    int a = 0;
-    for (string pre_place_name : transitions[trans_name]->pre_places) {
+    // 安全检查
+    auto t_it = transitions.find(trans_name);
+    if (t_it == transitions.end()) return false;
+    auto& trans = t_it->second;
+
+    // 1. 前置库所都应该有token
+    for (string pre_place_name : trans->pre_places) {
         if (m.find(pre_place_name) == m.end()) {
             return false;
         }
     }
-    //2.前置库所中的托肯应该满足弧上定义的规则
-    for (string pre_place_name : transitions[trans_name]->pre_places) {
-        bool place_lock = false;
+
+    // 2. 修正的属性匹配逻辑
+    for (string pre_place_name : trans->pre_places) {
+        auto fr_it = trans->fire_rule.find(pre_place_name);
+        if (fr_it == trans->fire_rule.end()) {
+            return false; // 没有定义触发规则
+        }
+
+        // 检查该库所是否有token满足任意规则属性
+        bool found_match = false;
         auto m_range = m.equal_range(pre_place_name);
-        for (int i = 0; i < transitions[trans_name]->fire_rule[pre_place_name].size(); ++i) {
-            for (auto it = m_range.first; it != m_range.second; ++it) {
-                if (it->second->token_attribute == transitions[trans_name]->fire_rule[pre_place_name][i]) {
-                    place_lock = true;
+
+        for (auto it = m_range.first; it != m_range.second && !found_match; ++it) {
+            for (const auto& rule_attr : fr_it->second) {
+                if (it->second->token_attribute == rule_attr) {
+                    found_match = true;
                     break;
                 }
-                else if (it->second->token_attribute != transitions[trans_name]->fire_rule[pre_place_name][i] && i == transitions[trans_name]->fire_rule[pre_place_name].size() - 1) {
-                    return false;
-                }
             }
-            if (place_lock == true) { break; }
         }
-    }
-    //3.后置库所满足容量要求
-    for (string post_place_name : transitions[trans_name]->post_places) {
-        if (places[post_place_name]->capacity == 1 && m.find(post_place_name) != m.end()) {
+
+        if (!found_match) {
             return false;
         }
     }
+
+    // 3. 后置库所容量检查（添加安全检查）
+    for (string post_place_name : trans->post_places) {
+        auto p_it = places.find(post_place_name);
+        if (p_it != places.end() && p_it->second->capacity == 1) {
+            if (m.find(post_place_name) != m.end()) {
+                return false;
+            }
+        }
+    }
+
     return true;
 }
 
@@ -86,6 +115,7 @@ string Petrinet::createKey(multimap<string, shared_ptr<Token>> m)
     }
     return key;
 }
+
 /****函数：激发可激发变迁,获得新节点***/
 void Petrinet::fire_trans_get_newnode(shared_ptr<Node>expand_node_temp, shared_ptr<Node> new_node, string trans_name)
 {
@@ -135,59 +165,74 @@ void Petrinet::fire_trans_get_newnode(shared_ptr<Node>expand_node_temp, shared_p
     father_node_action_temp.second = trans_name;
     new_node->fathernode_action.emplace_back(father_node_action_temp);
 }
+
 /****函数：对于新节点新旧判断后的处理***/
 void Petrinet::newnode_deal(shared_ptr<Node> new_node)
 {
-    bool judge_new_node_result = judage_new_node(new_node);
-    if (judge_new_node_result == 0 || judge_new_node_result == 2) {
+    auto judge_new_node_result = judge_new_node(new_node);
+    if (judge_new_node_result == Petrinet::new_node || judge_new_node_result == Petrinet::better_node) {
         expand_node->son_action.emplace_back(new_node, Fire_tran);
         node_list.emplace(createKey(new_node->marking), new_node);
         open_list.emplace(new_node);
     }
 }
 /****函数：新旧节点判断(0:无重复状态的新节点或者是时间轴判断无法确定的节点 1:时间轴判断为完全重复的节点（需要记住节点表内的“优秀节点”，后续需要存边）2:时间轴判断确定的全新节点（需要记住节点表内的“坏节点”，后续需要删除）3:无用节点)***/
-int Petrinet::judage_new_node(shared_ptr<Node> new_node)
+ Petrinet::node_type_judge Petrinet::judge_new_node(shared_ptr<Node> new_node)
 {
     string node_key = createKey(new_node->marking);
-    if (node_list.count(node_key) == 0) {
-        return 0;
+    // 若没有相同 key，则为全新状态
+    auto range = node_list.equal_range(node_key);
+    if (range.first == range.second) {
+        return node_type_judge::new_node;
     }
-    else {
-        //相同marking的node
-        vector<int>new_node_v = new_node->get_waitingtime();
-        auto range = node_list.equal_range(node_key);
-        for (auto it = range.first; it != range.second; ++it) {
-            //按照map自带顺序处理，可能存在不严谨的地方
-            vector<int>old_node_v = it->second->get_waitingtime();
-            int big_time = 0;
-            int equal_time = 0;
-            for (int i = 0; i < new_node_v.size(); ++i) {
-                if (new_node_v[i] - new_node->cost + it->second->cost > old_node_v[i]) {
-                    big_time++;
-                }
-                else if (new_node_v[i] - new_node->cost + it->second->cost == old_node_v[i]) {
-                    equal_time++;
-                }
-            }
-            if (equal_time == new_node_v.size() && new_node->cost == it->second->cost) {
-                pair<shared_ptr<Node>, string> new_fathernode_action;
-                new_fathernode_action.first = expand_node;
-                new_fathernode_action.second = Fire_tran;
-                it->second->fathernode_action.emplace_back(new_fathernode_action);
-                return 1;
+    
+    //相同marking的node // 只计算一次新节点的等待时间向量
+    vector<int>new_node_v = new_node->get_waitingtime();
+    for (auto it = range.first; it != range.second; ++it) {
+        //按照map自带顺序处理，可能存在不严谨的地方
+        vector<int>old_node_v = it->second->get_waitingtime();
+
+        // delta = old.cost - new.cost，
+        // 后续用 new_node_v[i] + delta 做比较，减少重复计算
+        int delta = it->second->cost - new_node->cost;
+        bool any_greater = false;   // 是否存在 adjusted > old
+        bool all_greater = true;    // 是否对所有位置 adjusted > old
+        int equal_count = 0;        // adjusted == old 的计数
+
+        for (size_t i = 0; i < new_node_v.size(); ++i) {
+            int adjusted = new_node_v[i] + delta;
+
+            if (adjusted > old_node_v[i]) {
+                any_greater = true;
             }
             else {
-                if (big_time == new_node_v.size()) {
-                    node_list.erase(it);
-                    return 2;
-                }
-                else if (big_time == 0) {
-                    return 3;
-                }
+                all_greater = false;
+            }
+            if (adjusted == old_node_v[i]) {
+                ++equal_count;
             }
         }
+
+        // 等价且cost相同 -> 视为重复节点，记录父节点动作并返回 1
+        if (equal_count == new_node_v.size() && new_node->cost == it->second->cost) {
+            pair<shared_ptr<Node>, string> new_fathernode_action;
+            new_fathernode_action.first = expand_node;
+            new_fathernode_action.second = Fire_tran;
+            it->second->fathernode_action.emplace_back(new_fathernode_action);
+            return node_type_judge::duplicate_node;
+        }
+        // 如果对所有位置 adjusted > old -> 新节点在时间轴上更好，删除旧节点并返回 2
+        if (all_greater) {
+            node_list.erase(it);
+            return node_type_judge::better_node;
+        }
+
+        // 如果没有任何 adjusted > old（即 big_time == 0） -> 新节点无用，返回 3
+        if (!any_greater) {
+            return node_type_judge::useless_node;
+        }
     }
-    return 0;
+    return node_type_judge::new_node;
 }
 /***************************************dijkstra_search**********************************************************/
 void Petrinet::dijskstra_search()
@@ -198,6 +243,7 @@ void Petrinet::dijskstra_search()
         open_list.pop();
         expand_node->id = expand_num;
         //cout << expand_node->cost << endl;
+        // 取得当前节点的可激发变迁列表（返回的是 vector<string>）
         auto expand_node_firable_trans = search_firable_transition(expand_node->marking);
         while (!expand_node_firable_trans.empty()) {
             expand_num++;
@@ -205,11 +251,7 @@ void Petrinet::dijskstra_search()
             shared_ptr<Node> expand_node_temp = make_shared<Node>();
             expand_node_temp->cost = expand_node->cost;
             for (auto itr = expand_node->marking.begin(); itr != expand_node->marking.end(); ++itr) {
-                shared_ptr<Token>token_temp = make_shared<Token>();
-                token_temp->waiting_time = itr->second->waiting_time;
-                token_temp->inplace = itr->second->inplace;
-                token_temp->token_attribute = itr->second->token_attribute;
-                token_temp->state = itr->second->state;
+                shared_ptr<Token> token_temp = make_shared<Token>(*(itr->second));
                 expand_node_temp->marking.emplace(token_temp->inplace, token_temp);
             }
             expand_node_temp->fathernode_action = expand_node->fathernode_action;
@@ -225,62 +267,98 @@ void Petrinet::dijskstra_search()
 /****函数：dijistra是否继续搜索***/
 bool Petrinet::is_dijkstra_continue()
 {
-    auto end_node = open_list.top();
+    // 若没有待扩展节点，搜索结束
+    if (open_list.empty()) {
+        return false;
+    }
+
+    auto top_node = open_list.top();
+
+    // 检查top_node是否满足所有目标约束；只要有一条目标未满足就继续搜索
     for (auto target_node : target_m) {
         string place_name;
         string token_attr;
         int num = 0;
         tie(place_name, token_attr, num) = target_node;
-        if (end_node->marking.count(place_name) == 0) {
+
+        auto range = top_node->marking.equal_range(place_name);
+        // 如果该库所不存在任何 token，则目标未满足
+        if (range.first == range.second) {
             return true;
         }
-        else {
-            auto range = end_node->marking.equal_range(place_name);
-            int eauqal_time = 0;
-            for (auto itr1 = range.first; itr1 != range.second; ++itr1) {
-                if (itr1->second->state[token_attr] == num) {
-                    eauqal_time++;
-                }
-            }
-            if (eauqal_time == 0) {
-                return true;
+        // 检查该库所中是否存在满足数量要求的token（state[token_attr] == num）
+        bool matched = false;
+        for (auto it = range.first; it != range.second; ++it) {
+            auto& state = it->second->state;
+            auto found = state.find(token_attr);
+            if (found != state.end() && found->second == num) {
+                matched = true;
+                break;
             }
         }
+        if (!matched) {
+            return true; // 对于某个目标不满足，继续搜索
+        }
     }
-    best_node = end_node;
+    // 所有目标都满足：记录并结束搜索
+    best_node = top_node;
     best_node->id = expand_num + 1;
     best_node->is_best = true;
     return false;
 }
 
-deque<tuple<multimap<string, shared_ptr<Token>>, string,int>> Petrinet::Createbestpath()
+void Petrinet::Createbestpath()
 {
-    deque<tuple<multimap<string, shared_ptr<Token>>, string,int>>path_temp;
-    bool continue_flag_back = true;
-    auto best_nextnode = make_shared<Node>();
-    string best_tran;
-    auto best_node_temp = best_node;
-    while (continue_flag_back) {
-        tuple<multimap<string, shared_ptr<Token>>, string,int>state_temp1;//状态、变迁、g值
-        for (auto& father_node : best_node_temp->fathernode_action) {
-            if (father_node.first->marking == m0 && father_node.first->cost == 0) {
-                continue_flag_back = false;
-                break;
-            }
+    deque<tuple<multimap<string, shared_ptr<Token>>, string, int>> path_temp;
+
+    // 保护性检查
+    if (!best_node) {
+        return;
+    }
+
+    auto current = best_node;
+
+    // 向前回溯直到到达初始标识（m0 且 cost == 0）或无法继续为止
+    while (true) {
+        // 没有父节点，结束回溯
+        if (current->fathernode_action.empty() || (current->cost == 0 && current->marking == m0)) {
+            break;
         }
-        int best_cost = 10000;
-        for (auto& father_node : best_node_temp->fathernode_action) {
-            if (father_node.first->cost < best_cost) {
-                best_cost = father_node.first->cost;
-                best_nextnode = father_node.first;
-                best_tran = father_node.second;
+
+        // 在 current 的父节点中选择 cost 最小的父节点
+        shared_ptr<Node> chosen_parent;
+        string chosen_tran;
+        int chosen_cost = 10000; //std::numeric_limits<int>::max(); 
+        for (const auto& p : current->fathernode_action) {
+            const auto& parent = p.first;
+            if (!parent) { continue; }
+            if (parent->cost < chosen_cost) {
+                chosen_cost = parent->cost;
+                chosen_parent = parent;
+                chosen_tran = p.second;
             }
         }
 
-        best_node_temp = best_nextnode;
-        state_temp1 = make_tuple(best_node_temp->marking, best_tran,best_cost);
-        path_temp.emplace_front(state_temp1);
-        best_nextnode->is_best = true;
+        // 若未找到有效父节点，结束回溯（防止无限循环）
+        if (!chosen_parent) {
+            break;
+        }
+
+        // 把选中的父节点状态与对应变迁、g 值放到路径前端
+        path_temp.emplace_front(chosen_parent->marking, chosen_tran, chosen_cost);
+        chosen_parent->is_best = true;
+
+        // 继续向上回溯
+        current = chosen_parent;
     }
-    return path_temp;
+
+    bestpath = path_temp;
+    std::cout << "\n最小完工时间: g_min = " << best_node->cost << "s" << "\n";
+    std::cout << "\n激发变迁序列: ";
+    while (!path_temp.empty()) {
+        string strTrans;
+        tie(ignore, strTrans, ignore) = path_temp.front();
+        std::cout << strTrans << (path_temp.size() != 1 ? " -> " : "\n");
+        path_temp.pop_front();
+    }
 }
